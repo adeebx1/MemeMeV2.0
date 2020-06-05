@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,16 +7,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMeV1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMeV1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONT-0K-Q5G">
                                 <rect key="frame" x="0.0" y="70" width="414" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="c3J-X3-dgY"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="Cancel" id="grf-2Z-LaX">
                                         <connections>
@@ -40,7 +43,7 @@
                                 <items>
                                     <barButtonItem title="album" id="FKA-cU-7Ea">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="LVf-lX-kRi"/>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="Feg-xD-7Da"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xd0-7s-laC"/>
@@ -52,18 +55,18 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="2M2-C2-6Ui">
-                                <rect key="frame" x="203.5" y="712" width="7" height="70"/>
+                                <rect key="frame" x="20" y="712" width="374" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Til-RK-bY9"/>
+                                    <constraint firstAttribute="height" constant="70" id="rZa-lN-5Xs"/>
                                 </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="DG8-sG-fhK">
-                                <rect key="frame" x="204" y="144" width="6" height="70"/>
+                                <rect key="frame" x="20" y="144" width="374" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="1vb-NA-XBv"/>
+                                    <constraint firstAttribute="height" constant="70" id="Xho-oH-7Br"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
@@ -72,21 +75,22 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2M2-C2-6Ui" firstAttribute="centerX" secondItem="ONT-0K-Q5G" secondAttribute="centerX" id="2ii-dR-lCn"/>
-                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="5Us-jC-JLb"/>
-                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="93W-uM-ym0"/>
-                            <constraint firstItem="DG8-sG-fhK" firstAttribute="centerX" secondItem="bsa-PP-Nyh" secondAttribute="centerX" id="A9v-rE-igk"/>
-                            <constraint firstItem="DG8-sG-fhK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Oai-Kt-Fgv"/>
-                            <constraint firstItem="VwG-pc-YoO" firstAttribute="top" secondItem="ONT-0K-Q5G" secondAttribute="bottom" id="Oqx-pf-ful"/>
-                            <constraint firstItem="VwG-pc-YoO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QQI-Ph-JXJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2M2-C2-6Ui" secondAttribute="bottom" constant="80" id="TPp-KT-kLx"/>
-                            <constraint firstItem="bsa-PP-Nyh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="U9J-Vl-Zv6"/>
-                            <constraint firstItem="bsa-PP-Nyh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bh5-EH-i41"/>
-                            <constraint firstItem="bsa-PP-Nyh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dli-ok-ot0"/>
-                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fMj-6E-SQ1"/>
-                            <constraint firstItem="bsa-PP-Nyh" firstAttribute="top" secondItem="VwG-pc-YoO" secondAttribute="bottom" id="gZX-0O-3mW"/>
-                            <constraint firstItem="VwG-pc-YoO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="13" id="iU4-ot-SLp"/>
-                            <constraint firstItem="VwG-pc-YoO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nk2-cW-Ba9"/>
+                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9Zp-IW-iic"/>
+                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="trailing" secondItem="VwG-pc-YoO" secondAttribute="trailing" id="BOV-5x-q5U"/>
+                            <constraint firstItem="VwG-pc-YoO" firstAttribute="top" secondItem="ONT-0K-Q5G" secondAttribute="bottom" id="BWF-eA-rDc"/>
+                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="leading" secondItem="VwG-pc-YoO" secondAttribute="leading" id="EC9-YS-eAL"/>
+                            <constraint firstItem="bsa-PP-Nyh" firstAttribute="top" secondItem="VwG-pc-YoO" secondAttribute="bottom" id="HFm-tr-F48"/>
+                            <constraint firstItem="DG8-sG-fhK" firstAttribute="leading" secondItem="2M2-C2-6Ui" secondAttribute="leading" id="HgG-F6-evX"/>
+                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="centerX" secondItem="DG8-sG-fhK" secondAttribute="centerX" id="IlE-kD-uKP"/>
+                            <constraint firstItem="VwG-pc-YoO" firstAttribute="trailing" secondItem="bsa-PP-Nyh" secondAttribute="trailing" id="IsT-wT-erz"/>
+                            <constraint firstItem="DG8-sG-fhK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="KPx-Wf-gK5"/>
+                            <constraint firstItem="DG8-sG-fhK" firstAttribute="trailing" secondItem="2M2-C2-6Ui" secondAttribute="trailing" id="R1i-L4-8Ea"/>
+                            <constraint firstItem="DG8-sG-fhK" firstAttribute="top" secondItem="ONT-0K-Q5G" secondAttribute="bottom" constant="25" id="V7S-xT-dWl"/>
+                            <constraint firstItem="ONT-0K-Q5G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="Yrl-sp-BJ5"/>
+                            <constraint firstItem="DG8-sG-fhK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hgy-CS-GTx"/>
+                            <constraint firstItem="bsa-PP-Nyh" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pHQ-0V-XQQ"/>
+                            <constraint firstItem="bsa-PP-Nyh" firstAttribute="top" secondItem="2M2-C2-6Ui" secondAttribute="bottom" constant="31" id="rft-CU-Qvv"/>
+                            <constraint firstItem="VwG-pc-YoO" firstAttribute="leading" secondItem="bsa-PP-Nyh" secondAttribute="leading" id="u6e-P7-XQO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
