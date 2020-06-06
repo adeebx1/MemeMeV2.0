@@ -81,20 +81,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     
-    @IBAction func pickAnImageFromAlbum(_ sender: UIBarButtonItem) {
-        pickAnImage(from: .photoLibrary)
-    }
-    @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        pickAnImage(from: .camera)
-        
-    }
-    
-    func pickAnImage(from source: UIImagePickerController.SourceType) {
+    @IBAction func pickAnImage(_ sender: Any) {
+        let input = sender as! UIBarButtonItem
         let PickerController = UIImagePickerController()
         PickerController.delegate = self
-        PickerController.sourceType = source
+        PickerController.sourceType =  input.tag == 0 ? .camera : .photoLibrary
         present(PickerController, animated: true, completion: nil)
     }
+    
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
         
@@ -124,7 +118,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-
+    
     func save() {
         // Create the meme
         _ = Meme(topTextField: topText.text!, bottomTextField: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
