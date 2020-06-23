@@ -121,7 +121,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func save() {
         // Create the meme
-        _ = Meme(topTextField: topText.text!, bottomTextField: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+        let meme = Meme(topTextField: topText.text!, bottomTextField: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+        
+        // Add the meme to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     func hideBars (_ Hidden:Bool){
@@ -161,7 +166,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    @IBAction func cancel(_ sender: Any) {
+    @IBAction func reset(_ sender: Any) {
         
         imagePickerView.image = nil
         topText.text = "TOP"
@@ -170,6 +175,15 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         
     }
+    
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
+    
     
     
     
